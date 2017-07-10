@@ -77,7 +77,8 @@ RCT_EXPORT_METHOD(setItem:(NSString*)key value:(NSString*)value options:(NSDicti
                                       (__bridge id)(kSecClassGenericPassword), kSecClass,
                                       keychainService, kSecAttrService,
                                       valueData, kSecValueData,
-                                      key, kSecAttrAccount, nil];
+                                      key, kSecAttrAccount,
+                                      kSecAttrAccessibleAlways, kSecAttrAccessible, nil];
 
     OSStatus osStatus = SecItemDelete((__bridge CFDictionaryRef) query);
     osStatus = SecItemAdd((__bridge CFDictionaryRef) query, NULL);
